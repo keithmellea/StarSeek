@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/keithmellea/project/issues"
   },
-  "homepage": "https://github.com/keithmellea/project#readme"
+  "homepage": "https://github.com/keithmellea/project#readme",
+  "dependencies": {
+    "js-cookie": "^2.2.1"
+  }
 }
