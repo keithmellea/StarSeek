@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'good_timesregular';
+    src: url('./webfontkit-20210426-173806/good_times_rg-webfont.woff2') format('woff2'),
+         url('./webfontkit-20210426-173806/good_times_rg-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a, button {    
+    font-family: 'good_timesregular';
+    text-decoration: none;
+    font-size: 20px;
+    border: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-left: 40px;
+}
+
+ul.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(251, 251, 251);
+    padding: 20px;
+    border: 5px solid black;
+}
+
+.navbar li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.auth {
+    display: flex;
+    justify-content: space-between;
+}
+

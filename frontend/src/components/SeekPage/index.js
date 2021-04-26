@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import SpotList from '../SpotList/index';
 
 import { getSpots } from "../../store/spots"; 
+
+
+import "./Seek.css";
+
 const SeekPage = () => {
 
 const dispatch = useDispatch();

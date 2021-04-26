@@ -4,6 +4,7 @@ import { getSpots } from '../../store/spots';
 import { useParams } from "react-router-dom";
 import SpotDetails from '../SpotDetails/index';
 
+import './SpotList.css'
 
 const SpotList = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,8 @@ if (!spots) {
       <div>
        { <ul className="spot-list">
            {spots?.map(spot => (
-               <li>{spot.name}</li>
+               <li>{`${spot.name} - ${spot.planet}`}
+               <div>{`${spot.hostId} - In ${spot.system}`}</div></li>
            ))}
            </ul>
            }

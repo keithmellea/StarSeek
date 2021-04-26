@@ -21,16 +21,18 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
+    <ul className="navbar">
       <li>
         <NavLink exact to="/">
           Home
         </NavLink>
+      </li>
+      <li >
         <NavLink exact to="/spots">
           Seek
         </NavLink>
-        {isLoaded && sessionLinks}
       </li>
+      <li className="auth">{isLoaded && sessionLinks}</li>
     </ul>
   );
 }
