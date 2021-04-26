@@ -21,11 +21,10 @@ if (!spots) {
   return null;
 }
     return (
-        <div>
+      <div>
         <SpotList />
-        <div></div>
-        </div>
-    )
+      </div>
+    );
 }
 
 export default SeekPage;
