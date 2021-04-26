@@ -25,7 +25,6 @@ module.exports = {
         type: Sequelize.DECIMAL(10, 2),
       },
       description: {
-        allowNull: false,
         type: Sequelize.TEXT(6000),
       },
       system: {
@@ -41,7 +40,6 @@ module.exports = {
         type: Sequelize.STRING(255),
       },
       arrangements: {
-        allowNull: false,
         type: Sequelize.TEXT(6000),
       },
       createdAt: {

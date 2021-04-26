@@ -57,7 +57,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "userId",
     };
     User.belongsToMany(models.Spot, columnMapping);
-    User.hasMany(models.Review, {foreignKey: "userId"})
   };
 
 
