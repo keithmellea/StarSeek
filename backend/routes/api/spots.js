@@ -2,12 +2,12 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { check, validationResult } = require("express-validator");
 
-const { Spots } = require('../../db/models/spot');
+const db = require('../../db/models');
 const router = express.Router();
 
 
-router.get('/spots', asyncHandler(async (req, res) => {
-    const spots = await Spots.findAll();
+router.get('/', asyncHandler(async (req, res) => {
+    const spots = await db.Spot.findAll();
     console.log("spots");
     return res.json(spots);
 }))
