@@ -2,9 +2,9 @@
 
 const LOAD = 'spots/LOAD';
 
-const load = (spots) => ({
+const load = list => ({
   type: LOAD,
-  spots,
+  list,
 });
 
 export const getSpots = () => async dispatch => {
@@ -15,23 +15,22 @@ export const getSpots = () => async dispatch => {
         dispatch(load(spots));
     }
 }
+
 const initialState = {
-  spots: [],
-  types: [],
+  list: []
 };
 
 const spotsReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD:
-            console.log("hello")
-          const allSpots = {};
-        action.spots.forEach(spot => {
+          const allSpots = [];  
+        action.list.forEach(spot => {
             allSpots[spot.id] = spot;
         });
         return {
-            ...allSpots,
+            allSpots,
             ...state,
-            spots: action.spots
+            list: action.list,
         }
         default:
             return state;
