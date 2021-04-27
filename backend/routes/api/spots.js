@@ -11,4 +11,10 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json(spots);
 }))
 
+router.get("/:id", asyncHandler(async (req, res) => {
+    const id = parseInt(req.params.id, 10);
+    const spot = await db.Spot.findByPk(id);
+    return res.json(spot);
+  })
+);
 module.exports = router;

@@ -1,0 +1,64 @@
+body {
+    overflow: scroll;
+    color: black;
+}
+
+.container-div {
+    display: flex;
+    margin: auto;
+    height: 800px;
+    width: 1000px;
+    background-color: rgba(222, 213, 213, 0.956);
+    border-bottom: 1px solid white;
+    border-radius: 50px;
+}
+
+.spot-div {
+    display: grid;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 200px;
+  grid-template-rows: 50px 50px 100px 100px 200px 200px;
+  grid-template-areas:
+    ". . name name . . . . . "
+    ". . rating planet system . . . . "
+    ". photos photos photos photos . . . . "
+    ". photos photos photos photos . . . . "
+    ". arrangements arrangements . . host host . . "
+    ". description description description . . book . . "
+    ". . . reviews reviews . . . . ";
+}
+
+.name {
+    grid-area: name;
+}
+
+.rating {
+    grid-area: rating;
+}
+
+.planet {
+    grid-area: planet;
+}
+
+.system {
+    grid-area: system;
+}
+
+.photos {
+    grid-area: photos;
+}
+
+.arrangements {
+    grid-area: arrangements;
+}
+
+.host {
+    grid-area: host;
+}
+
+.description {
+    grid-area: description;
+}
+
+.reviews {
+    grid-area: reviews;
+}

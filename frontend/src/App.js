@@ -5,10 +5,12 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SeekPage from "./components/SeekPage/index"
+import SpotPage from "./components/SpotPage/index"
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -21,8 +23,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/spots">
+          <Route exact path="/spots">
             <SeekPage />
+          </Route>
+          <Route path="/spots/:id">
+            <SpotPage />
           </Route>
         </Switch>
       )}

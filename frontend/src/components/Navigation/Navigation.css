@@ -8,8 +8,9 @@
 
 a, button {    
     font-family: 'good_timesregular';
-    text-decoration: none;
+    text-decoration: none !important;
     font-size: 20px;
+    color: #0060B6;
     border: none;
     background: none;
     border: none;
@@ -21,8 +22,8 @@ ul.navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgb(251, 251, 251);
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.935);
+    padding: 12px;
     border: 5px solid black;
 }
 
