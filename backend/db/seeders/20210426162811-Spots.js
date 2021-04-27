@@ -7,7 +7,7 @@ module.exports = {
      [
        {
          name: "Mons Olympus",
-         photos: 'backend/db/images/mons1.jpg backend/db/images/mons2.jpg backend/db/images/mons3.jpg backend/db/images/mons4.jpeg',
+         photos: 'https://cdn.mos.cms.futurecdn.net/XNRcoHujh5mZHmPQZzYbgH.jpghttps://designyoutrust.com/wp-content/uploads/2020/09/1-36.jpghttps://designyoutrust.com/wp-content/uploads/2020/09/1-36.jpghttps://designyoutrust.com/wp-content/uploads/2020/09/1-36.jpg backend/db/images/mons2.jpg backend/db/images/mons3.jpg backend/db/images/mons4.jpeg',
          price: 500,
          avg_Rating: 4.78,
          description: "desc",

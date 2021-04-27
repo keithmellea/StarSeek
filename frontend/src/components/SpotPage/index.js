@@ -11,10 +11,10 @@ const SpotPage = () => {
     const { id } = useParams();
     const spot = useSelector((state) => state.spots[id]); 
 console.log(id);
-const spots = useSelector((state) => {
-  return state.spots.list;
-});
-
+    const photos = spot?.photos.split(" ");
+    const firstPhoto = photos?.splice(0, 1);
+    const nextPhotos = photos?.splice(0, 4);
+console.log(nextPhotos + "- nextPhotos");
 useEffect(() => {
   dispatch(getOneSpot(id));
 }, [id]);
@@ -29,7 +29,16 @@ useEffect(() => {
             <div className="rating">{spot.avg_Rating}</div>
             <div className="planet">{spot.planet}</div>
             <div className="system">{spot.system}</div>
-            <div className="photos">Photos</div>
+            <div className="photos">
+              <img className="firstPhoto" src={firstPhoto}></img>
+              <img className="secondPhoto" src={nextPhotos[0]}></img>
+              <img className="thirdPhoto" src={nextPhotos[1]}></img>
+              <img className="fourthPhoto" src={nextPhotos[2]}></img>
+              {photos.map((photo) => {
+                console.log(photo);
+                return <img className="otherPhotos" src={photo}></img>;
+              })}
+            </div>
             <div className="arrangements">Arrangements</div>
             <div className="host">{spot.hostId}</div>
             <div className="description">{spot.description}</div>

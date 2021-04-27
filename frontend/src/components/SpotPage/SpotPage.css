@@ -16,15 +16,16 @@ body {
 .spot-div {
     display: grid;
   grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 200px;
-  grid-template-rows: 50px 50px 100px 100px 200px 200px;
+  grid-template-rows: 50px 50px 100px 100px 100px 200px 200px;
   grid-template-areas:
-    ". . name name . . . . . "
-    ". . rating planet system . . . . "
-    ". photos photos photos photos . . . . "
-    ". photos photos photos photos . . . . "
-    ". arrangements arrangements .  host host . price . "
-    ". description description description . . book . . "
-    ". . . reviews reviews . . . . ";
+    ". . . name name . . . . . "
+    ". . . rating planet system . . . . "
+    "firstPhoto photos photos . . . . . . . "
+    "firstPhoto photos photos . . . . . . . "
+    "firstPhoto photos photos . . . . . . . "
+    ". . arrangements arrangements .  host host . price . "
+    ". . description description description . . book . . "
+    ". . . . reviews reviews . . . . ";
 }
 
 .name {
@@ -43,8 +44,25 @@ body {
     grid-area: system;
 }
 
+.firstPhoto {
+    height: 270px;
+    width: 600px;
+    grid-area: firstPhoto;
+}
+
 .photos {
     grid-area: photos;
+    display: flex;
+    flex-direction: row;
+}
+
+.secondPhoto,
+.thirdPhoto,
+.fourthPhoto {
+    height: 135px;
+    width: 150px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .arrangements {
@@ -61,4 +79,8 @@ body {
 
 .reviews {
     grid-area: reviews;
+}
+
+.img {
+    flex-wrap: wrap;
 }
