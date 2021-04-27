@@ -26,10 +26,8 @@ useEffect(() => {
         <div className="container-div">
           <div className="spot-div">
             <div className="name">{spot.name}</div>
-            <div className="rating">{spot.avg_Rating}</div>
-            <div className="planet">{spot.planet}</div>
-            <div className="system">{spot.system}</div>
-            <div className="photos">
+            <div className="rating">{`💫 ${spot.avg_Rating}`}</div>
+            <div className="planet">{`${spot.planet}, ${spot.system}`}</div>
               <img className="firstPhoto" src={firstPhoto}></img>
               <img className="secondPhoto" src={nextPhotos[0]}></img>
               <img className="thirdPhoto" src={nextPhotos[1]}></img>
@@ -38,7 +36,6 @@ useEffect(() => {
                 console.log(photo);
                 return <img className="otherPhotos" src={photo}></img>;
               })}
-            </div>
             <div className="arrangements">Arrangements</div>
             <div className="host">{spot.hostId}</div>
             <div className="description">{spot.description}</div>

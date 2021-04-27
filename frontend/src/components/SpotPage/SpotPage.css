@@ -6,30 +6,36 @@ body {
 .container-div {
     display: flex;
     margin: auto;
-    height: 800px;
-    width: 1000px;
+    height: 1200px;
+    width: 900px;
     background-color: rgba(222, 213, 213, 0.956);
     border-bottom: 1px solid white;
     border-radius: 50px;
 }
 
 .spot-div {
+    font-family: 'good_timesregular';
     display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 200px;
-  grid-template-rows: 50px 50px 100px 100px 100px 200px 200px;
+  grid-template-columns: 100px 75px 230px 90px 155px 155px 100px;
+  grid-template-rows: 20px 40px 10px 30px 140px 160px 100px 200px 500px;
   grid-template-areas:
-    ". . . name name . . . . . "
-    ". . . rating planet system . . . . "
-    "firstPhoto photos photos . . . . . . . "
-    "firstPhoto photos photos . . . . . . . "
-    "firstPhoto photos photos . . . . . . . "
-    ". . arrangements arrangements .  host host . price . "
-    ". . description description description . . book . . "
-    ". . . . reviews reviews . . . . ";
+    ". . . . . . ."
+    ". name name . . . ."
+    ". . . . . . ."
+    ". rating planet . . system ."
+    ". firstPhoto firstPhoto . secondPhoto thirdPhoto ."
+    ". firstPhoto firstPhoto . fourthPhoto fifthPhoto ."
+    ". arrangements arrangements . . host price"
+    ". description description description . . book"
+    ". . reviews reviews reviews reviews .";
+    
 }
 
 .name {
     grid-area: name;
+    border-bottom: 2px solid white;
+    font-weight: 900;
+    font-size: 25px;
 }
 
 .rating {
@@ -44,25 +50,42 @@ body {
     grid-area: system;
 }
 
-.firstPhoto {
-    height: 270px;
-    width: 600px;
-    grid-area: firstPhoto;
-}
-
 .photos {
     grid-area: photos;
     display: flex;
     flex-direction: row;
 }
 
+.firstPhoto {
+    height: 275px;
+    width: 390px;
+    grid-area: firstPhoto;
+  border-radius: 10px;
+}
+
 .secondPhoto,
 .thirdPhoto,
-.fourthPhoto {
+.fourthPhoto,
+.fifthPhoto {
     height: 135px;
     width: 150px;
-    display: flex;
-    flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.secondPhoto {
+    grid-area: secondPhoto;
+}
+
+.thirdPhoto {
+    grid-area: thirdPhoto;
+}
+
+.fourthPhoto {
+    grid-area: fourthPhoto;
+}
+
+.fifthPhoto {
+    grid-area: fifthPhoto;
 }
 
 .arrangements {
@@ -79,8 +102,4 @@ body {
 
 .reviews {
     grid-area: reviews;
-}
-
-.img {
-    flex-wrap: wrap;
 }
