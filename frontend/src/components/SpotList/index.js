@@ -27,7 +27,7 @@ if (!spots) {
       <div>
         <ul className="spot-list">
           {spots?.map((spot) => (
-            <div className="spot-div">
+            <div className="spots-div">
               <NavLink key={spot.name} to={`/spots/${spot.id}`}>
                 <div className="spot-details">
                   <img

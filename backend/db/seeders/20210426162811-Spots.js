@@ -7,6 +7,7 @@ module.exports = {
      [
        {
          name: "Mons Olympus",
+         photos: 'backend/db/images/mons1.jpg backend/db/images/mons2.jpg backend/db/images/mons3.jpg backend/db/images/mons4.jpeg',
          price: 500,
          avg_Rating: 4.78,
          description: "desc",
@@ -19,6 +20,7 @@ module.exports = {
        },
        {
          name: "Station Eris",
+         photos: 'backend/db/images/station1.jpg backend/db/images/station2.jpeg backend/db/images/station3.jpeg',
          price: 800,
          avg_Rating: 4.78,
          description: "desc",
@@ -31,6 +33,7 @@ module.exports = {
        },
        {
          name: "Tanaan Jungles",
+         photos: 'backend/db/images/jungle1.jpg backend/db/images/jungle3.jpg backend/db/images/jungle2.jpeg',
          price: 2200,
          avg_Rating: 4.78,
          description: "desc",
