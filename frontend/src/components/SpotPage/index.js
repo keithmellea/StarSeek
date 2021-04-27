@@ -28,18 +28,33 @@ useEffect(() => {
             <div className="name">{spot.name}</div>
             <div className="rating">{`💫 ${spot.avg_Rating}`}</div>
             <div className="planet">{`${spot.planet}, ${spot.system}`}</div>
-              <img className="firstPhoto" src={firstPhoto}></img>
-              <img className="secondPhoto" src={nextPhotos[0]}></img>
-              <img className="thirdPhoto" src={nextPhotos[1]}></img>
-              <img className="fourthPhoto" src={nextPhotos[2]}></img>
-              {photos.map((photo) => {
-                console.log(photo);
-                return <img className="otherPhotos" src={photo}></img>;
-              })}
-            <div className="arrangements">Arrangements</div>
-            <div className="host">{spot.hostId}</div>
+            <img className="firstPhoto" src={firstPhoto}></img>
+            <img className="secondPhoto" src={nextPhotos[0]}></img>
+            <img className="thirdPhoto" src={nextPhotos[1]}></img>
+            <img className="fourthPhoto" src={nextPhotos[2]}></img>
+            <img className="fifthPhoto" src={nextPhotos[3]}></img>
+            {photos.map((photo) => {
+              console.log(photo);
+              return <img className="otherPhotos" src={photo}></img>;
+            })}
+            <div className="arrangements">{`${spot.arrangements} hosted by ${spot.hostId}`}</div>
             <div className="description">{spot.description}</div>
             <div className="reviews">Reviews</div>
+            <div className="price">{`${spot.price} / night`}</div>
+            <div className="book">
+              <form>
+                <input type="start-date" placeholder="Check-in" required />
+                <input type="start-date" placeholder="Check-out" required />
+                <select placeholder="Guests">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                <button className="submit-button" type="submit">Book</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

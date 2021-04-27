@@ -6,7 +6,7 @@ module.exports = {
      "Spots",
      [
        {
-         name: "Mons Olympus",
+         name: "Olympus Mons",
          photos:
            "https://cdn.mos.cms.futurecdn.net/XNRcoHujh5mZHmPQZzYbgH.jpg https://designyoutrust.com/wp-content/uploads/2020/09/1-36.jpg https://designyoutrust.com/wp-content/uploads/2020/09/1-36.jpg https://designyoutrust.com/wp-content/uploads/2020/09/1-36.jpg https://astronomy.com/-/media/Images/News%20and%20Observing/News/2020/11/DSCCR1116_15.jpg?mw=600",
          price: 500,

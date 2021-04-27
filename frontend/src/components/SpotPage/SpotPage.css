@@ -17,7 +17,7 @@ body {
     font-family: 'good_timesregular';
     display: grid;
   grid-template-columns: 100px 75px 230px 90px 155px 155px 100px;
-  grid-template-rows: 20px 40px 10px 30px 140px 160px 100px 200px 500px;
+  grid-template-rows: 20px 40px 10px 30px 140px 160px 30px 230px 500px;
   grid-template-areas:
     ". . . . . . ."
     ". name name . . . ."
@@ -25,9 +25,9 @@ body {
     ". rating planet . . system ."
     ". firstPhoto firstPhoto . secondPhoto thirdPhoto ."
     ". firstPhoto firstPhoto . fourthPhoto fifthPhoto ."
-    ". arrangements arrangements . . host price"
-    ". description description description . . book"
-    ". . reviews reviews reviews reviews .";
+    ". arrangements arrangements . . price ."
+    ". description description description . book book"
+    ". reviews reviews reviews reviews reviews .";
     
 }
 
@@ -98,8 +98,24 @@ body {
 
 .description {
     grid-area: description;
+    font-size: 14px;
 }
 
 .reviews {
     grid-area: reviews;
+}
+
+.price {
+    grid-area: price;
+    font-size: 14px;
+    border-bottom: 1px solid white;
+}
+
+.book {
+    padding-top: 10px;
+    grid-area: book;
+}
+
+.submit-button {
+    padding-top: 5px;
 }
