@@ -10,11 +10,10 @@ const SpotPage = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const spot = useSelector((state) => state.spots[id]); 
-console.log(id);
     const photos = spot?.photos.split(" ");
     const firstPhoto = photos?.splice(0, 1);
     const nextPhotos = photos?.splice(0, 4);
-console.log(nextPhotos + "- nextPhotos");
+    
 useEffect(() => {
   dispatch(getOneSpot(id));
 }, [id]);
