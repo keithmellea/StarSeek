@@ -11,8 +11,8 @@ const BookingForm = ({user, spot, id}) => {
     
     const dispatch = useDispatch();
     const [booking, setBooking] = useState(" ");
-    const [startDate, setStartDate] = useState(" ");
-    const [endDate, setEndDate] = useState(" ");
+    const [startDate, setStartDate] = useState("yyyy-MM-dd");
+    const [endDate, setEndDate] = useState("yyyy-MM-dd");
 
     const updateStartDate = (e) => setStartDate(e.target.value);
     const updateEndDate = (e) => setEndDate(e.target.value);
@@ -29,22 +29,27 @@ const BookingForm = ({user, spot, id}) => {
         setBooking("");
     }
 
+  const openCalendar = e => {
+       return <Calendar /> 
+    }
+
     return (
       <form className="form-div" onSubmit={handleSubmit}>
         <label>
           {" "}
           Check-In
           <input
-            type="start-date"
+            type="date"
             placeholder="Add date"
             required
             value={startDate}
             onChange={updateStartDate}
+
           />
         </label>
         <label>Checkout</label>
         <input
-          type="end-date"
+          type="date"
           placeholder="Add date"
           required
           value={endDate}
@@ -68,7 +73,6 @@ const BookingForm = ({user, spot, id}) => {
         <button className="submit-button" type="submit">
           Book
         </button>
-        <Calendar />
       </form>
     );
 }

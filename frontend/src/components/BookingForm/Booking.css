@@ -3,12 +3,14 @@
 }
 
 .form-div {
+    margin-top: 7px;
     position: relative;
     background-color: white;
     width: 147px;
     padding-left: 10px;
     padding-right: 10px;
     border: 1px solid black;
+    padding-bottom: 5px;
 }
 
 .form-div label {

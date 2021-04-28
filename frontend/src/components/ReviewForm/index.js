@@ -4,7 +4,7 @@ import { createReview } from "../../store/reviews";
 // import { useHistory } from 'react-router-dom';
 import "./ReviewForm.css";
 
-const CreateReviewForm = ({ user, spot }) => {
+const ReviewForm = ({ user, spot }) => {
   const dispatch = useDispatch();
   // const history = useHistory();
   const [review, setReview] = useState("");
@@ -40,4 +40,4 @@ const CreateReviewForm = ({ user, spot }) => {
   );
 };
 
-export default CreateReviewForm;
+export default ReviewForm;

@@ -1,23 +1,29 @@
 body {
-    overflow: scroll;
+    overflow: auto;
     color: black;
 }
 
+.root {
+}
+
 .container-div {
-    display: flex;
+    display: flex   ;
     margin: auto;
-    height: 1200px;
+    height: 1500px;
     width: 900px;
     background-color: rgba(243, 234, 234, 0.915);
     border-bottom: 1px solid white;
     border-radius: 50px;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 .spot-div {
     font-family: 'good_timesregular';
     display: grid;
   grid-template-columns: 100px 75px 230px 90px 155px 155px 100px;
-  grid-template-rows: 20px 40px 10px 30px 140px 160px 30px 230px 500px;
+  grid-template-rows: 20px 40px 10px 30px 140px 155px 30px 230px 500px;
   grid-template-areas:
     ". . . . . . ."
     ". name name . . . ."
@@ -90,6 +96,7 @@ body {
 
 .arrangements {
     grid-area: arrangements;
+    border-bottom: 1px solid white;
 }
 
 .host {
@@ -100,6 +107,8 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     grid-area: description;
     font-size: 15px;
+    font-weight: 200;
+    padding-top: 10px;
 }
 
 .reviews {
@@ -115,4 +124,20 @@ body {
 .book {
     padding-top: 10px;
     grid-area: book;
+}
+
+.reviews-list {
+    padding-bottom: 20px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.review {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 200;
 }

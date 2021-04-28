@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSpots } from "../../store/spots";
 import { useParams } from "react-router-dom";
 import { getOneSpot } from '../../store/spots';
+import { getReviews } from '../../store/reviews';
 import Calendar from 'react-calendar';
 import BookingForm from '../BookingForm'
 import ReviewForm from '../ReviewForm';
@@ -17,9 +18,12 @@ const SpotPage = () => {
     const firstPhoto = photos?.splice(0, 1);
     const nextPhotos = photos?.splice(0, 4);
     const user = useSelector(state => state.session.user);
+    const reviews = useSelector(state => state.reviews.reviews);
+    console.log(reviews);
 
 useEffect(() => {
-  dispatch(getOneSpot(id));
+  dispatch(getOneSpot(id),
+  dispatch(getReviews(id)));
 }, [id]);
 
   if (!spot) return null;
@@ -29,7 +33,7 @@ useEffect(() => {
         <div className="container-div">
           <div className="spot-div">
             <div className="name">{spot.name}</div>
-            <div className="rating">{`💫 ${spot.avg_Rating}`}</div>
+            <div className="rating">{`⭐️ ${spot.avg_Rating}`}</div>
             <div className="planet">{`${spot.planet}, ${spot.system}`}</div>
             <img className="firstPhoto" src={firstPhoto}></img>
             <img className="secondPhoto" src={nextPhotos[0]}></img>
@@ -42,11 +46,23 @@ useEffect(() => {
             })}
             <div className="arrangements">{`${spot.arrangements} hosted by ${spot.hostId}`}</div>
             <div className="description">{spot.description}</div>
-            <div className="reviews"><ReviewForm user={user} spot={spot}/></div>
+            <div className="reviews">
+              <ReviewForm user={user} spot={spot} />
+              <div className="reviews-list">{`${spot.avg_Rating} (${reviews.length} reviews)` }
+              {reviews.map((review) => {
+                return <div className="review">{review.review}</div>
+              })}
+              </div>
+            </div>
             <div className="price">{`${spot.price} / night`}</div>
             <div className="book">
               <div>
-              <BookingForm user={user} spot={spot} host={spot.hostId} id={id}/>  
+                <BookingForm
+                  user={user}
+                  spot={spot}
+                  host={spot.hostId}
+                  id={id}
+                />
               </div>
             </div>
           </div>

@@ -9,10 +9,8 @@ router.get(
   asyncHandler(async function (req, res) {
     const reviews = await db.Review.findAll({
       where: {
-        listing_id: req.params.id,
+        spotId: req.params.id,
       },
-      include: { model: db.User },
-      order: [["updatedAt", "DESC"]],
     });
     return res.json(reviews);
   })
