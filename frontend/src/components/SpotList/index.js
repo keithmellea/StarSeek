@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSpots } from '../../store/spots'; 
 import { NavLink, useParams } from "react-router-dom";
 import SpotDetails from '../SpotDetails/index';
+//import GoogleApiWrapper from "../GoogleMapsAPI";
 
 import './SpotList.css'
 

@@ -23,10 +23,10 @@ router.get("/:id", asyncHandler(async (req, res) => {
 router.post("/:id/bookings", asyncHandler(async (req, res) => {
     const userId = req.session.auth.userId;
     const user = await db.User.findByPk(userId);
-    const { checkIn, checkOut } = req.body;
+    const { checkIn, checkOut, location, host } = req.body;
     const date = `${checkIn} - ${checkOut}`
 
-    const newBooking = await db.Booking.create({ date })
-    
+    const newBooking = await db.Booking.create({location, host, date })
+    res.json({ newBooking });
 }))
 module.exports = router;
