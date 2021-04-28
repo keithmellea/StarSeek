@@ -7,33 +7,49 @@ import Calendar from "react-calendar";
 
 import './Booking.css';
 
-const BookingForm = ({user, spot, host}) => {
-
+const BookingForm = ({user, spot, id}) => {
+    
     const dispatch = useDispatch();
     const [booking, setBooking] = useState(" ");
+    const [startDate, setStartDate] = useState(" ");
+    const [endDate, setEndDate] = useState(" ");
+
+    const updateStartDate = (e) => setStartDate(e.target.value);
+    const updateEndDate = (e) => setEndDate(e.target.value);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const newBooking = {
-            booking,
+            booking: `${startDate} - ${endDate}`,
             userId: user.id,
-            spotId: spot.id,
-            hostId: host
+            spotId: spot.id
         };
-        let createdBooking = await dispatch(createBooking(newBooking));
+        let createdBooking = await dispatch(createBooking(newBooking, id));
         setBooking("");
     }
 
     return (
-      <form className="form-div">
+      <form className="form-div" onSubmit={handleSubmit}>
         <label>
           {" "}
           Check-In
-          <input type="start-date" placeholder="Add date" required />
+          <input
+            type="start-date"
+            placeholder="Add date"
+            required
+            value={startDate}
+            onChange={updateStartDate}
+          />
         </label>
         <label>Checkout</label>
-        <input type="start-date" placeholder="Add date" required />
+        <input
+          type="end-date"
+          placeholder="Add date"
+          required
+          value={endDate}
+          onChange={updateEndDate}
+        />
         <select className="Guests">
           <option value="" disabled selected>
             Guests

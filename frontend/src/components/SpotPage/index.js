@@ -45,7 +45,7 @@ useEffect(() => {
             <div className="price">{`${spot.price} / night`}</div>
             <div className="book">
               <div>
-              <BookingForm userId={user} spot={spot} host={spot.hostId} />  
+              <BookingForm user={user} spot={spot} host={spot.hostId} id={id}/>  
               </div>
             </div>
           </div>

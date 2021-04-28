@@ -1,4 +1,5 @@
 //import Spot from "../../../backend/db/models/spot";
+import { csrfFetch } from "./csrf";
 
 const LOAD = 'spots/LOAD';
 const ADD_ONE = 'spot/ADD_ONE';
@@ -37,8 +38,8 @@ export const getOneSpot = (id) => async (dispatch) => {
   }
 }
 
-export const createBooking = (newBooking) => async (dispatch) => {
-  const res = await fetch("/api/:id/bookings", {
+export const createBooking = (newBooking, id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/spots/${id}/bookings`, {
     method: "POST",
     body: JSON.stringify(newBooking),
   });

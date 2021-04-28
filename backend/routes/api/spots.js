@@ -21,13 +21,11 @@ router.get("/:id", asyncHandler(async (req, res) => {
 
 //Create Booking
 router.post("/:id/bookings", asyncHandler(async (req, res) => {
-    const userId = req.session.auth.userId;
-    const user = await db.User.findByPk(userId);
-    const { checkIn, checkOut, location, host } = req.body;
-    const date = `${checkIn} - ${checkOut}`
+    const { userId, booking, spotId } = req.body;
 
-    const newBooking = await db.Booking.create({location, host, date })
-    res.json({ newBooking });
+    const newBooking = await db.Booking.create({userId, booking, spotId })
+    console.log('NEWBOOKING', newBooking)
+   return res.json( newBooking );
 }))
 
 

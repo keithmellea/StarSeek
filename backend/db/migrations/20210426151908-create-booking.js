@@ -9,16 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       userId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       spotId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
-      date: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      location: {
+      booking: {
         allowNull: false,
         type: Sequelize.STRING,
       },
