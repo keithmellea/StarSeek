@@ -1,0 +1,36 @@
+.submit-button {
+    padding-top: 5px;
+}
+
+.form-div {
+    position: relative;
+    background-color: white;
+    width: 147px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
+
+.form-div label {
+    font-size: 12px;
+    color: rgb(66, 65, 65);
+}
+.form-div input,
+.form-div label
+ {
+  border: none;
+  padding-bottom: 6px;
+  border-bottom: 1px solid black;
+}
+
+.Guests {
+    width: 1px;
+    border: none;
+    border-top: 1px solid black;
+}
+
+.form-div button {
+    padding-top: 5px;
+    position: relative;
+    left: 23px;
+}

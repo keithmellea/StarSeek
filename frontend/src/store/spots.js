@@ -2,6 +2,7 @@
 
 const LOAD = 'spots/LOAD';
 const ADD_ONE = 'spot/ADD_ONE';
+const ADD_BOOKING = "bookings/ADD_ONE";
 
 const load = list => ({
   type: LOAD,
@@ -11,6 +12,11 @@ const load = list => ({
 const addOneSpot = spot => ({
   type: ADD_ONE,
   spot,
+});
+
+const addOneBooking = (booking) => ({
+  type: ADD_BOOKING,
+  booking,
 });
 
 export const getSpots = () => async dispatch => {
@@ -30,6 +36,19 @@ export const getOneSpot = (id) => async (dispatch) => {
     dispatch(addOneSpot(spot));
   }
 }
+
+export const createBooking = (newBooking) => async (dispatch) => {
+  const res = await fetch("/api/:id/bookings", {
+    method: "POST",
+    body: JSON.stringify(newBooking),
+  });
+
+  if (!res.ok) throw res;
+  const booking = await res.json();
+  console.log("new booking ", booking);
+  dispatch(addOneBooking(booking));
+  return booking;
+};
 
 const initialState = {
   list: []
@@ -57,6 +76,24 @@ const spotsReducer = (state = initialState, action) => {
         spotList.push(action.spot);
         return newState;
       }
+      case ADD_BOOKING: {
+        if (!state[action.booking.id]) {
+        const newState = {
+          ...state,
+          [action.booking.id]: action.booking
+        };
+        const bookingList = newState.list?.map(id => newState[id]);
+        bookingList?.push(action.booking);
+        return newState;
+      }
+      return {
+        ...state,
+        [action.booking.id]: {
+          ...state[action.booking.id],
+          ...action.booking,
+        }
+        }
+      };
         default:
             return state;
     }

@@ -29,4 +29,6 @@ router.post("/:id/bookings", asyncHandler(async (req, res) => {
     const newBooking = await db.Booking.create({location, host, date })
     res.json({ newBooking });
 }))
+
+
 module.exports = router;

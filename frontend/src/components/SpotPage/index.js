@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSpots } from "../../store/spots";
 import { useParams } from "react-router-dom";
 import { getOneSpot } from '../../store/spots';
+import Calendar from 'react-calendar';
+import BookingForm from '../BookingForm'
 
 import './SpotPage.css';
 
@@ -13,6 +15,7 @@ const SpotPage = () => {
     const photos = spot?.photos.split(" ");
     const firstPhoto = photos?.splice(0, 1);
     const nextPhotos = photos?.splice(0, 4);
+    const user = useSelector(state => state.session.user);
 
 useEffect(() => {
   dispatch(getOneSpot(id));
@@ -42,33 +45,7 @@ useEffect(() => {
             <div className="price">{`${spot.price} / night`}</div>
             <div className="book">
               <div>
-                <form className="form-div">
-                  <label>
-                    {" "}
-                    Check-In
-                  <input type="start-date" placeholder="Add date" required/>
-                  </label>
-                  <label>Checkout</label>
-                  <input type="start-date" placeholder="Add date" required />
-                  <select className="Guests">
-                    <option value="" disabled selected>
-                      Guests
-                    </option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                  </select>
-                  <button className="submit-button" type="submit">
-                    Book
-                  </button>
-                </form>
+              <BookingForm userId={user} spot={spot} host={spot.hostId} />  
               </div>
             </div>
           </div>
