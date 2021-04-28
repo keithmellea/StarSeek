@@ -8,6 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      review: {
+        allowNull: false,
+        type: Sequelize.STRING(1000)
+      },
       author: {
         allowNull: false,
         type: Sequelize.STRING(100),
@@ -19,6 +23,10 @@ module.exports = {
       spotId: {
         type: Sequelize.INTEGER,
         references: { model: "Spots" },
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: { model: "Users" },
       },
       createdAt: {
         allowNull: false,

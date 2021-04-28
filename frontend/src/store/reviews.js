@@ -22,7 +22,7 @@ export const getReviews = (id) => async (dispatch) => {
   }
 };
 
-export const createReviewForm = (newReview) => async (dispatch) => {
+export const createReview = (newReview) => async (dispatch) => {
   const res = await csrfFetch("/api/reviews", {
     method: "POST",
     body: JSON.stringify(newReview),

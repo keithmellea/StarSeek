@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { getOneSpot } from '../../store/spots';
 import Calendar from 'react-calendar';
 import BookingForm from '../BookingForm'
+import ReviewForm from '../ReviewForm';
 
 import './SpotPage.css';
 
@@ -41,7 +42,7 @@ useEffect(() => {
             })}
             <div className="arrangements">{`${spot.arrangements} hosted by ${spot.hostId}`}</div>
             <div className="description">{spot.description}</div>
-            <div className="reviews">Reviews</div>
+            <div className="reviews"><ReviewForm user={user} spot={spot}/></div>
             <div className="price">{`${spot.price} / night`}</div>
             <div className="book">
               <div>
