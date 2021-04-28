@@ -22,14 +22,14 @@ function Navigation({ isLoaded }) {
 
   return (
     <ul className="navbar">
-      <li className='home'>
+      <li className="home">
         <NavLink exact to="/">
           Home
         </NavLink>
       </li>
-      <li className='seek'>
+      <li className="seek">
         <NavLink exact to="/spots">
-          Seek
+          <button>Seek</button>
         </NavLink>
       </li>
       <li className="auth">{isLoaded && sessionLinks}</li>
