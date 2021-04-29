@@ -10,11 +10,27 @@ a, button {
     font-family: 'good_timesregular';
     text-decoration: none !important;
     font-size: 22px;
-    color: #fa9a13;
-    border: none;
-    background: none;
-    border: none;
+    color: white;
+    background-color: #fa9a13;
     cursor: pointer;
+    border-radius: 20px;
+}
+
+a:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 10px #000000;
+     -moz-box-shadow: inset 0px 0px 10px #000000;
+          box-shadow: inset 0px 0px 10px #040404;
+   outline: none;
+}
+
+button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 10px #000000;
+     -moz-box-shadow: inset 0px 0px 10px #000000;
+          box-shadow: inset 0px 0px 10px #040404;
+   outline: none;
+   border-radius: 20px;
 }
 
 ul.navbar {
@@ -51,4 +67,22 @@ ul.navbar {
     color: white;
     background-color: #fa9a13;
     border-radius: 20px;   
+}
+
+a:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 10px #000000;
+     -moz-box-shadow: inset 0px 0px 10px #000000;
+          box-shadow: inset 0px 0px 10px #040404;
+   outline: none;
+   border-radius: 20px;
+}
+
+button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 10px #000000;
+     -moz-box-shadow: inset 0px 0px 10px #000000;
+          box-shadow: inset 0px 0px 10px #040404;
+   outline: none;
+   border-radius: 20px;
 }

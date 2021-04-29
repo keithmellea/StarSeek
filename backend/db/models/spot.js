@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       planet: DataTypes.STRING,
       region: DataTypes.STRING,
       arrangements: DataTypes.TEXT,
+      latitude: DataTypes.FLOAT,
+      longitude: DataTypes.FLOAT
     },
     {}
   );

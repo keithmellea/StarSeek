@@ -3,8 +3,7 @@ body {
     color: black;
 }
 
-.root {
-}
+
 
 .container-div {
     display: flex   ;
@@ -14,10 +13,6 @@ body {
     background-color: rgba(243, 234, 234, 0.915);
     border-bottom: 1px solid white;
     border-radius: 50px;
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 .spot-div {
     font-family: 'good_timesregular';

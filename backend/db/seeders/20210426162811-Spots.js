@@ -20,6 +20,8 @@ module.exports = {
          hostId: 1,
          createdAt: new Date(),
          updatedAt: new Date(),
+         latitude: 49.260112287007246,
+         longitude: -123.19992906626858,
        },
        {
          name: "Station Eris",
@@ -34,6 +36,8 @@ module.exports = {
          hostId: 1,
          createdAt: new Date(),
          updatedAt: new Date(),
+         latitude: 49.260112287007246,
+         longitude: -123.19992906626858,
        },
        {
          name: "Tanaan Jungles",
@@ -48,6 +52,8 @@ module.exports = {
          hostId: 2,
          createdAt: new Date(),
          updatedAt: new Date(),
+         latitude: 49.260112287007246,
+         longitude: -123.19992906626858,
        },
      ],
      {}

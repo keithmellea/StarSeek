@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
     <ul className="navbar">
       <li className="home">
         <NavLink exact to="/">
-          Home
+          <button>Home</button>
         </NavLink>
       </li>
       <div className="seek">

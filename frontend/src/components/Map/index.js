@@ -10,27 +10,38 @@ const mapStyles = {
 
 export function MapContainer (props) {
     const { location , coordinates} = props
-    // console.log("COORDINATES", coordinates[0].lat)
 
 
     return (
       <Map
         google={props.google}
-        zoom={7}
-        style={mapStyles}
         initialCenter={
             location
-        }
+        style={mapStyles}
+        defaultOptions={{
+          maxZoom: 18,
+          mapTypeControlOptions: {
+            mapTypeIds: ["moon", "satellite"],
+          },
+        }}
+        mapTypeId={google ? "moon" : "satellite"}
+        defaultExtraMapTypes={[
+          {
+            id: "moon",
+            mapType: {
+              getTileUrl: function (coord, zoom) {
+                return "mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw/1/1/0.jpg";
+              },
+              maxZoom: 9,
+              minZoom: 0,
+              radius: 1738000,
+              name: "Moon",
+            },
+          },
+        ]}
+        
+        disableDefaultUI
       >
-        {/* {coordinates.forEach((coordinate) => (
-                <Marker
-                  title={''}
-                  name={''}
-                  position={{lat:coordinate.lat, long:coordinate.long}} 
-                  // onClick={Redirect  to='/'}
-                />
-            )
-        )} */}
       </Map>
     );
   

@@ -10,6 +10,7 @@ import './SpotList.css'
 const SpotList = () => {
   const dispatch = useDispatch();
   const { spotId } = useParams();
+    //const reviews = useSelector((state) => state.reviews.reviews);
 const spots = useSelector((state) => {
   return state.spots.list;
 });
@@ -35,8 +36,9 @@ if (!spots) {
                     className="spot-img"
                     src="https://cdn.mos.cms.futurecdn.net/XNRcoHujh5mZHmPQZzYbgH.jpg"
                   ></img>
-                  <div className="desc1">{`${spot.name} - ${spot.planet}`}</div>
-                  <div className="desc2">{`${spot.hostId} - In ${spot.system}`}</div>
+                  <div className="desc1">{`${spot.name} - ${spot.planet}, ${spot.system}`}</div>
+                  <div className="desc2">{`⭐️${spot.avg_Rating}`}</div>{" "}
+                  <div className="prices">{`${spot.price} / night`}</div>
                 </div>
               </NavLink>
             </div>

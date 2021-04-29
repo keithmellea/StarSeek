@@ -3,3 +3,19 @@
     display: flex;
     flex-direction: row;
 }
+a:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 10px #000000;
+     -moz-box-shadow: inset 0px 0px 10px #000000;
+          box-shadow: inset 0px 0px 10px #040404;
+   outline: none;
+}
+
+button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 10px #000000;
+     -moz-box-shadow: inset 0px 0px 10px #000000;
+          box-shadow: inset 0px 0px 10px #040404;
+   outline: none;
+   border-radius: 20px;
+}

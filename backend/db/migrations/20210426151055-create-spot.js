@@ -45,6 +45,14 @@ module.exports = {
       arrangements: {
         type: Sequelize.TEXT(6000),
       },
+      latitude: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
+      },
+      longitude: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

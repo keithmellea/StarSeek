@@ -2,49 +2,43 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SpotList from "../SpotList/index";
 
-// import GoogleApiWrapper from "../../components/Map/CustomMap/index";
+import SimpleMap, { MapContainer } from "../../components/Map/CustomMap/index";
 
 
 import { getSpots } from "../../store/spots"; 
-import GoogleApiWrapper from "../Map";
+//import GoogleApiWrapper from "../Map";
 import { useSearch } from "../../context/SearchContext";
 
 import "./Seek.css";
 
 const SeekPage = () => {
 
-//   const {
-//     name,
-//     hostId,
-//     avg_Rating,
-//     system,
-//     planet,
-//     region,
-//     arrangements
-//   } = useSearch();
+const {
+            // location,
+            // start_date,
+            // end_date,
+            guests,
+      } = useSearch()
 
-// const onSubmit = async (e) => {
-//   e.preventDefault();
-
-//   let res = await Geocode.fromAddress(location);
-//   const { lat, lng } = res.results[0].geometry.location;
-//   let address = { lat, lng };
-//   setLocation(address);
-//   let searchFrom = {
-//     address,
-//     start_date,
-//     end_date,
-//     guests,
-//   };
-
-//   history.push("/listings");
-// };
-
-const dispatch = useDispatch();
 
  const spots = useSelector((state) => {
    return state.spots.list;
  });
+
+  let  coordinates = () => { 
+      let coordinateObjects = []
+    spots.forEach((listing) => { 
+        const lat = spots.latitude;
+        const long = spots.longitude;
+        const id = spots.id
+        let coorObj = {spots, spots, id}
+        coordinateObjects.push(coorObj)
+    })
+    return coordinateObjects;
+  }
+
+const dispatch = useDispatch();
+
 
 useEffect(() => {
   dispatch(getSpots());
@@ -56,10 +50,10 @@ if (!spots) {
   return null;
 }
     return (
-      <div className='page-div'>
+      <div className="page-div">
         <SpotList />
         <div className="map">
-          <GoogleApiWrapper/>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Andromeda_Galaxy_560mm_FL.jpg/1280px-Andromeda_Galaxy_560mm_FL.jpg"></img>
         </div>
       </div>
     );

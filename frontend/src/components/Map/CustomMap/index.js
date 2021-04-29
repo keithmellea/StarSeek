@@ -1,55 +1,44 @@
-import React from "react";
-import {
-  Map,
-  GoogleMap,
-  GoogleApiWrapper,
-  Marker,
-  overlayView,
-} from "google-maps-react";
-import { Redirect, useHistory } from "react-router";
+import React, { useState } from "react";
+import GoogleMapReact from "google-map-react";
+import Marker from "./Marker";
 
-const mapStyles = {
-  width: "58%",
-  height: "600px",
+const SimpleMap = (props) => {
+  const getMapOptions = (maps) => {
+    return {
+      disableDefaultUI: true,
+      mapTypeControl: true,
+      streetViewControl: true,
+      styles: [
+        {
+          featureType: "poi",
+          elementType: "labels",
+          stylers: [{ visibility: "on" }],
+        },
+      ],
+    };
+  };
+
+  const [center, setCenter] = useState({ lat: 11.0168, lng: 76.9558 });
+  const [zoom, setZoom] = useState(11);
+  return (
+    <div style={{ height: "100vh", width: "100%" }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyCGltd6f1lIaVFe-Pf0Gs6v5eEGTxqDRFk" }}
+        defaultCenter={center}
+        defaultZoom={zoom}
+        options={getMapOptions}
+      >
+        <Marker lat={11.0168} lng={76.9558} name="My Marker" color="blue" />
+      </GoogleMapReact>
+    </div>
+  );
 };
 
-export function MapContainer(props) {
-  const { location, coordinates } = props;
-  // console.log("COORDINATES", coordinates[0].lat)
+export default SimpleMap;
 
-  return (
-    <Map
-className="maps"
-defaultZoom={17}
-defaultCenter={{ lat: 46.215951, lng: 12.306994 }}
-defaultMapTypeId="moon"
-defaultExtraMapTypes={[{id:"moon", mapType:{
-      getTileUrl: function(coord, zoom) {
-          return "mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw/1/1/0.jpg";
-      },
-      maxZoom: 9,
-      minZoom: 0,
-      radius: 1738000,
-      name: 'Moon'
-    }}]}
-defaultOptions={{
-              maxZoom: 18,
-              mapTypeControlOptions: {
-                mapTypeIds: ['moon','satellite']
-              }
-          }}
-          defaultExtraMapTypes={[
-              ['moon', mapStyles ]
-          ]}
-
-disableDefaultUI>
-    </Map>
-  );
-}
-
-export default GoogleApiWrapper({
-  // apiKey: process.env.GOOGLE_MAPS_KEY
-  src:
-    "https://www.innovationnewsnetwork.com/wp-content/uploads/2021/02/Primordial-galaxy-696x392.jpg",
-  apiKey: "AIzaSyCGltd6f1lIaVFe-Pf0Gs6v5eEGTxqDRFk",
-})(MapContainer);
+// export default GoogleApiWrapper({
+//   // apiKey: process.env.GOOGLE_MAPS_KEY
+//   src:
+//     "https://www.innovationnewsnetwork.com/wp-content/uploads/2021/02/Primordial-galaxy-696x392.jpg",
+//   apiKey: "AIzaSyCGltd6f1lIaVFe-Pf0Gs6v5eEGTxqDRFk",
+// })(MapContainer);
