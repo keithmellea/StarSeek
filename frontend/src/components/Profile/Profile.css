@@ -1,6 +1,17 @@
 .profile-container {
-  margin: 6em 2em;
-  background-color: rgba(255, 255, 255, 0.945);
-  width: 50%;
-  height: 500px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin: 6rem 8em;
+  background-color: rgba(243, 234, 234, 0.915);
+  border-radius: 50px;
+  width: 80%;
+  height: 1000px;
+}
+
+.booking {
+    border-bottom: 2px solid white;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    width: 50%;
 }

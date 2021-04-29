@@ -8,6 +8,7 @@ const ReviewForm = ({ user, spot }) => {
   const dispatch = useDispatch();
   // const history = useHistory();
   const [review, setReview] = useState("");
+  const [rating, setRating] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const ReviewForm = ({ user, spot }) => {
     const newReview = {
       review,
       author: user.username,
-      rating: 5,
+      rating,
       userId: user.id,
       spotId: spot.id,
     };
@@ -33,7 +34,16 @@ const ReviewForm = ({ user, spot }) => {
           value={review}
           onChange={(e) => setReview(e.target.value)}
         />
-
+        <select className="stars" onChange={(e) => setRating(e.target.value)}>
+          <option value="" disabled selected>
+            Stars
+          </option>
+          <option>⭐️</option>
+          <option>⭐️⭐️</option>
+          <option>⭐️⭐️⭐️</option>
+          <option>⭐️⭐️⭐️⭐️</option>
+          <option>⭐️⭐️⭐️⭐️⭐️</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </section>

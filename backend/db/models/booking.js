@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       userId: DataTypes.INTEGER,
       spotId: DataTypes.INTEGER,
       booking: DataTypes.STRING,
-      location: DataTypes.STRING
+      location: DataTypes.STRING,
+      guests: DataTypes.INTEGER
     },
     {}
   );

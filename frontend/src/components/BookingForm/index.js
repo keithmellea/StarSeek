@@ -13,6 +13,7 @@ const BookingForm = ({user, spot, id}) => {
     const [booking, setBooking] = useState(" ");
     const [startDate, setStartDate] = useState("yyyy-MM-dd");
     const [endDate, setEndDate] = useState("yyyy-MM-dd");
+    const [guests, setGuests] = useState(0);
 
     const updateStartDate = (e) => setStartDate(e.target.value);
     const updateEndDate = (e) => setEndDate(e.target.value);
@@ -25,6 +26,7 @@ const BookingForm = ({user, spot, id}) => {
           userId: user.id,
           location: `${spot.name}, ${spot.planet}, ${spot.system}`,
           spotId: spot.id,
+          guests
         };
         let createdBooking = await dispatch(createBooking(newBooking, id));
         setBooking("");
@@ -45,7 +47,6 @@ const BookingForm = ({user, spot, id}) => {
             required
             value={startDate}
             onChange={updateStartDate}
-
           />
         </label>
         <label>Checkout</label>
@@ -56,7 +57,7 @@ const BookingForm = ({user, spot, id}) => {
           value={endDate}
           onChange={updateEndDate}
         />
-        <select className="Guests">
+        <select className="guests" onChange={(e) => setGuests(e.target.value)}>
           <option value="" disabled selected>
             Guests
           </option>

@@ -53,6 +53,7 @@ useEffect(() => {
                 const reviewVals = (
                   <div className="review">
                     <h3>{`${review.author} - ${review.createdAt}`}</h3>
+                    <div>{review.rating}</div>
                     <div>{review.review}</div>
 
                   </div>

@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       review: DataTypes.TEXT,
       author: DataTypes.STRING,
-      rating: DataTypes.INTEGER,
+      rating: DataTypes.STRING,
       spotId: DataTypes.INTEGER,
       userId: DataTypes.INTEGER,
     },

@@ -18,7 +18,7 @@ module.exports = {
       },
       rating: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       spotId: {
         type: Sequelize.INTEGER,

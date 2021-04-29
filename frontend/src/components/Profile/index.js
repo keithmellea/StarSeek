@@ -40,10 +40,13 @@ function Profile() {
         <h2>Bookings</h2>
         {bookings.map((booking) => {
             const bookingVals = (
-            <div>
-              <h2>{booking.location}</h2>
-              <div className="booking">{booking.booking}</div>
-            </div>
+              <ul className="booking">
+                <li>
+                  <h2>{booking.location}</h2>
+                  <div>{booking.booking}</div>
+                  <div>{`Guests: ${booking.guests}`}</div>
+                </li>
+              </ul>
             );
           return bookingVals;
         })}
