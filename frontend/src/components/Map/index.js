@@ -1,12 +1,11 @@
 import React from 'react';
-import { Map, GoogleMap, GoogleApiWrapper, Marker, overlayView } from 'google-maps-react';
+import { Map, GoogleMap, GoogleApiWrapper, Marker, overlayView, ImageMapType } from 'google-maps-react';
 import { Redirect, useHistory } from 'react-router';
 
 const mapStyles = {
   width: '58%',
   height: '600px'
 };
-
 
 
 export function MapContainer (props) {

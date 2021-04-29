@@ -7,11 +7,21 @@ import SpotList from "../SpotList/index";
 
 import { getSpots } from "../../store/spots"; 
 import GoogleApiWrapper from "../Map";
-
+import { useSearch } from "../../context/SearchContext";
 
 import "./Seek.css";
 
 const SeekPage = () => {
+
+  const {
+    name,
+    hostId,
+    avg_Rating,
+    system,
+    planet,
+    region,
+    arrangements
+  }
 
 const dispatch = useDispatch();
 
