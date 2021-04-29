@@ -21,12 +21,13 @@ router.get("/:id", asyncHandler(async (req, res) => {
 
 //Create Booking
 router.post("/:id/bookings", asyncHandler(async (req, res) => {
-    const { userId, booking, spotId } = req.body;
+    const { userId, booking, spotId, location } = req.body;
 
-    const newBooking = await db.Booking.create({userId, booking, spotId })
+    const newBooking = await db.Booking.create({userId, booking, spotId, location })
     console.log('NEWBOOKING', newBooking)
    return res.json( newBooking );
 }))
+
 
 
 module.exports = router;

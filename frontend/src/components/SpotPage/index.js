@@ -50,7 +50,14 @@ useEffect(() => {
               <ReviewForm user={user} spot={spot} />
               <div className="reviews-list">{`${spot.avg_Rating} (${reviews.length} reviews)` }
               {reviews.map((review) => {
-                return <div className="review">{review.review}</div>
+                const reviewVals = (
+                  <div className="review">
+                    <h3>{`${review.author} - ${review.createdAt}`}</h3>
+                    <div>{review.review}</div>
+
+                  </div>
+                );
+                return reviewVals;
               })}
               </div>
             </div>

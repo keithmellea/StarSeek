@@ -10,9 +10,13 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
 
-  const openMenu = () => {
+  let icon = document.getElementsByClassName("icon");
+
+  const openMenu = (e) => {
+    e.target.display = "none";
     if (showMenu) return;
     setShowMenu(true);
+
   };
 
   useEffect(() => {
@@ -34,12 +38,15 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="icon" onClick={openMenu}>
         <i className="fas fa-user-astronaut" />
       </button>
       <div className="profile">
         {showMenu && (
           <div className="profile-dropdown">
+            <button onClick={openMenu}>
+              <i className="fas fa-user-astronaut" />
+            </button>
             <NavLink exact to="/profile">
               Profile
             </NavLink>

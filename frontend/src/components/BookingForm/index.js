@@ -8,7 +8,7 @@ import Calendar from "react-calendar";
 import './Booking.css';
 
 const BookingForm = ({user, spot, id}) => {
-    
+    console.log("spot", spot);
     const dispatch = useDispatch();
     const [booking, setBooking] = useState(" ");
     const [startDate, setStartDate] = useState("yyyy-MM-dd");
@@ -21,9 +21,10 @@ const BookingForm = ({user, spot, id}) => {
         e.preventDefault();
 
         const newBooking = {
-            booking: `${startDate} - ${endDate}`,
-            userId: user.id,
-            spotId: spot.id
+          booking: `${startDate} - ${endDate}`,
+          userId: user.id,
+          location: `${spot.name}, ${spot.planet}, ${spot.system}`,
+          spotId: spot.id,
         };
         let createdBooking = await dispatch(createBooking(newBooking, id));
         setBooking("");
