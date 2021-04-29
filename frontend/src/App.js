@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import SeekPage from "./components/SeekPage/index";
 import SpotPage from "./components/SpotPage/index";
 import Homepage from "./components/Homepage/index";
+import Profile from '../../frontend/src/components/Profile'
 
 function App() {
   const dispatch = useDispatch();
@@ -24,8 +25,14 @@ function App() {
           <Route exact path="/">
             <Homepage />
           </Route>
+          <Route path="/spots/:id">
+            <SpotPage />
+          </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
           <Route exact path="/spots">
             <SeekPage />

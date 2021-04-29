@@ -13,15 +13,32 @@ import "./Seek.css";
 
 const SeekPage = () => {
 
-  const {
-    name,
-    hostId,
-    avg_Rating,
-    system,
-    planet,
-    region,
-    arrangements
-  }
+//   const {
+//     name,
+//     hostId,
+//     avg_Rating,
+//     system,
+//     planet,
+//     region,
+//     arrangements
+//   } = useSearch();
+
+// const onSubmit = async (e) => {
+//   e.preventDefault();
+
+//   let res = await Geocode.fromAddress(location);
+//   const { lat, lng } = res.results[0].geometry.location;
+//   let address = { lat, lng };
+//   setLocation(address);
+//   let searchFrom = {
+//     address,
+//     start_date,
+//     end_date,
+//     guests,
+//   };
+
+//   history.push("/listings");
+// };
 
 const dispatch = useDispatch();
 

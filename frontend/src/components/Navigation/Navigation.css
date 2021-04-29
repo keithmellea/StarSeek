@@ -33,6 +33,7 @@ ul.navbar {
 .auth {
     justify-content: flex-end;
     padding-right: 5px;
+    padding-left: 45px;
 }
 
 .home {
