@@ -1,10 +1,16 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD = "bookings/LOAD";
+const DELETE_ONE = "bookings/DELETE_ONE";
 
 const load = (list) => ({
   type: LOAD,
   list,
+});
+
+const deleteBooking = (booking) => ({
+  type: DELETE_ONE,
+  booking,
 });
 
 export const getBookings = () => async (dispatch) => {
@@ -20,21 +26,38 @@ const initialState = {
   list: [],
 };
 
+export const cancelBooking = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/bookings/${id}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw res;
+  const booking = await res.json();
+  dispatch(deleteBooking(booking));
+  return booking;
+};
+
 const bookingsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD: {
-          const allBookings = [];  
-        action.list.forEach(booking => {
-            allBookings[booking.id] = booking;
+      case LOAD: {
+        const allBookings = [];
+        action.list.forEach((booking) => {
+          allBookings[booking.id] = booking;
         });
         return {
-            allBookings,
-            ...state,
-            list: action.list,
-        }
+          allBookings,
+          ...state,
+          list: action.list,
+        };
       }
-        default:
-            return state;
+      case DELETE_ONE: {
+        const newState = {
+          ...state,
+        };
+        delete newState[action.booking];
+        return newState;
+      }
+      default:
+        return state;
     }
 }
 

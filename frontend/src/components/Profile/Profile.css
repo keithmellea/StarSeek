@@ -1,7 +1,13 @@
 .profile-container {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    ". pic . . ."
+    ". name . . ."
+    ". email . . ."
+    ". bookings . . ."
+    ". . . . .";
   margin: 6rem 8em;
   background-color: rgba(243, 234, 234, 0.915);
   border-radius: 50px;
@@ -14,4 +20,16 @@
     padding-bottom: 1em;
     padding-top: 1em;
     width: 50%;
+}
+
+.name {
+    grid-area: name;
+}
+
+.email {
+    grid-area: email;
+}
+
+.bookings {
+    grid-area: bookings;
 }

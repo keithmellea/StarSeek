@@ -26,13 +26,27 @@ function SignupFormPage() {
         if (data && data.errors) setErrors(data.errors);
       });
     }
+
+  
+
     return setErrors([
       "Confirm Password field must be the same as the Password field",
     ]);
   };
 
+const loginUser = (e) => {
+  e.preventDefault();
+  setErrors([]);
+  return dispatch(
+    sessionActions.login({ credential: "Demo-lition", password: "password" })
+  ).catch(async (res) => {
+    const data = await res.json();
+    if (data && data.errors) setErrors(data.errors);
+  });
+};
+
   return (
-    <form className='signup' onSubmit={handleSubmit}>
+    <form className="signup" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
@@ -75,6 +89,9 @@ function SignupFormPage() {
         />
       </label>
       <button type="submit">Sign Up</button>
+      <button type="button" onClick={loginUser} className="submit 2">
+        Demo User
+      </button>
     </form>
   );
 }

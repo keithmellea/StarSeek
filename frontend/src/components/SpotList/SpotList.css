@@ -1,6 +1,6 @@
 .spot-list {
   display: flex;
-  width: 485px;
+  width: 495px;
   height: 500px;
   flex-direction: column;
   overflow-y: scroll;

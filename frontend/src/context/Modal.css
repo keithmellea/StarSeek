@@ -7,6 +7,7 @@
   bottom: 0;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -20,6 +21,38 @@
 }
 
 #modal-content {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
   background-color:white;
+}
+
+.login-form {
+  display: flex;
+  padding: 10px;
+  padding-top: 0px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-label {
+  padding: 10px;
+
+}
+
+.login-input {
+  margin-left: 10px;
+}
+
+.login-input-name {
+  position: relative;
+  margin-left: 10px;
+}
+.login-label-name {
+  position: relative;
+  padding: 10px;
+  padding-bottom: 20px;
 }

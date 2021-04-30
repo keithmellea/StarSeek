@@ -31,12 +31,12 @@ function Homepage(props) {
           <label className="input2">
             {" "}
             Arrival
-            <input placeholder="Add Date"></input>
+            <input type="date" placeholder="Add Date"></input>
           </label>
           <label className="input3">
             {" "}
             Departure
-            <input placeholder="Add Date"></input>
+            <input type="date" placeholder="Add Date"></input>
           </label>
           <label className="input4">
             {" "}

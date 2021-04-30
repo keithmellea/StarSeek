@@ -13,4 +13,15 @@ router.get(
   })
 );
 
+router.delete(
+  "/:id",
+  asyncHandler(async function (req, res) {
+    const booking = await db.Booking.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.json(req.params.id);
+  })
+);
 module.exports = router;
