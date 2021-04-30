@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getSpots } from "../../store/spots";
 import { useParams } from "react-router-dom";
 import { getOneSpot } from '../../store/spots';
-import { getReviews } from '../../store/reviews';
+import { getReviews, deleteReview } from "../../store/reviews";
 import Calendar from 'react-calendar';
 import BookingForm from '../BookingForm'
 import ReviewForm from '../ReviewForm';
@@ -25,6 +25,15 @@ useEffect(() => {
   dispatch(getOneSpot(id),
   dispatch(getReviews(id)));
 }, [id]);
+
+    const deleteReviewButton = (id) => {
+      let result = window.confirm(
+        "Are you sure you want to delete your review?"
+      );
+      if (result) {
+        dispatch(deleteReview(id));
+      }
+    };
 
   if (!spot) return null;
 
@@ -55,7 +64,12 @@ useEffect(() => {
                     <h3>{`${review.author} - ${review.createdAt}`}</h3>
                     <div>{review.rating}</div>
                     <div>{review.review}</div>
-
+                        <div className="delete">{
+                          <button id="deleteReview" onClick={() => deleteReviewButton(review.id)}>
+                            Delete
+                          </button> 
+                        } 
+                        </div>
                   </div>
                 );
                 return reviewVals;

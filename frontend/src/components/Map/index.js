@@ -11,44 +11,39 @@ const mapStyles = {
 export function MapContainer (props) {
     const { location , coordinates} = props
 
-
     return (
       <Map
         google={props.google}
-        initialCenter={
-            location
+        initialCenter={location}
         style={mapStyles}
-        defaultOptions={{
-          maxZoom: 18,
-          mapTypeControlOptions: {
-            mapTypeIds: ["moon", "satellite"],
-          },
-        }}
-        mapTypeId={google ? "moon" : "satellite"}
+        mapType={"moon"}
         defaultExtraMapTypes={[
           {
             id: "moon",
             mapType: {
               getTileUrl: function (coord, zoom) {
-                return "mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw/1/1/0.jpg";
+                return "https://mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw/1/1/0.jpg";
               },
               maxZoom: 9,
+              tileSize: new props.google.maps.Size(256, 256),
               minZoom: 0,
               radius: 1738000,
               name: "Moon",
             },
           },
         ]}
-        
-        disableDefaultUI
-      >
-      </Map>
+        defaultOptions={{
+          maxZoom: 18,
+          mapTypeControlOptions: {
+            mapTypeIds: ["moon", "satellite"],
+          },
+        }}
+        // disableDefaultUI
+      ></Map>
     );
-  
+           
 }
 
 export default GoogleApiWrapper({
-  // apiKey: process.env.GOOGLE_MAPS_KEY
-  src: "https://www.innovationnewsnetwork.com/wp-content/uploads/2021/02/Primordial-galaxy-696x392.jpg",
   apiKey: "AIzaSyCGltd6f1lIaVFe-Pf0Gs6v5eEGTxqDRFk",
 })(MapContainer);

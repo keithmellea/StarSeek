@@ -16,6 +16,18 @@ router.get(
   })
 );
 
+router.delete(
+  "/:id",
+  asyncHandler(async function (req, res) {
+    const booking = await db.Review.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.json(req.params.id);
+  })
+);
+
 router.post("/", asyncHandler(async function (req, res) {
     const newReview = await db.Review.create(req.body);
     return res.json(newReview);

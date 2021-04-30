@@ -36,11 +36,16 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  let hideButton;
+if (showMenu === false) {
+  hideButton = <button className="icon" onClick={openMenu}>
+    <i className="fas fa-user-astronaut" />
+  </button>;
+}
+
   return (
     <>
-      <button className="icon" onClick={openMenu}>
-        <i className="fas fa-user-astronaut" />
-      </button>
+      {hideButton}
       <div className="profile">
         {showMenu && (
           <div className="profile-dropdown">
@@ -48,7 +53,7 @@ function ProfileButton({ user }) {
               <i className="fas fa-user-astronaut" />
             </button>
             <NavLink exact to="/profile">
-              Profile
+              <button>Profile</button>
             </NavLink>
             <div>
               <button onClick={logout}>Log Out</button>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SpotList from "../SpotList/index";
 
-import SimpleMap, { MapContainer } from "../../components/Map/CustomMap/index";
+import GoogleApiWrapper from "../../components/Map";
 
 
 import { getSpots } from "../../store/spots"; 
@@ -53,7 +53,8 @@ if (!spots) {
       <div className="page-div">
         <SpotList />
         <div className="map">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Andromeda_Galaxy_560mm_FL.jpg/1280px-Andromeda_Galaxy_560mm_FL.jpg"></img>
+          {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Andromeda_Galaxy_560mm_FL.jpg/1280px-Andromeda_Galaxy_560mm_FL.jpg"></img> */}
+          <GoogleApiWrapper coordinates={coordinates}/>
         </div>
       </div>
     );
