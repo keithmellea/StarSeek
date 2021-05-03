@@ -3,6 +3,9 @@ import { useHistory } from "react-router";
 import "./Homepage.css";
 import Footer from '../Footer/index';
 
+import Calendar from "react-calendar";
+
+
 function Homepage(props) {
   const [guests, setGuests] = useState("");
   const [location, setLocation] = useState("");
@@ -49,8 +52,7 @@ function Homepage(props) {
           </label>
           <button>Seek</button>
         </form>
-      </div>
-      <Footer />
+      </div>c
     </>
   );
 }

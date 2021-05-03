@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector,  useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getBookings, cancelBooking } from '../../store/bookings';
+import EditProfileModal from "../EditProfileModal";
 
 import "./Profile.css";
 
@@ -37,17 +38,23 @@ function Profile() {
       }
     };
 
+  const updateUserForm = () => {};
+
   return (
     <>
       <div className="profile-container">
         <h1 className="name">{sessionUser.username}</h1>
         <h1 className="email">{sessionUser.email}</h1>
 
+        <div className="edit-user">
+          <EditProfileModal />
+        </div>
+
         <div className="bookings">
           <h2>Bookings</h2>
           {bookings.map((booking) => {
             const bookingId = bookings.indexOf(booking);
-              
+
             const bookingVals = (
               <ul className="booking">
                 <li>
@@ -58,7 +65,7 @@ function Profile() {
                     type="button"
                     onClick={() => cancelBookingButton(bookingId)}
                   >
-                    Cancel Trip
+                    Cancel
                   </button>
                 </li>
               </ul>

@@ -1,7 +1,7 @@
 .spot-list {
   display: flex;
   width: 495px;
-  height: 500px;
+  height: 600px;
   flex-direction: column;
   overflow-y: scroll;
   background-color: rgba(222, 213, 213, 0.901);

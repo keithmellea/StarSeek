@@ -27,14 +27,15 @@ if (!spots) {
 
     return (
       <div>
-        <ul className="spot-list">
+        <ul className="spot-list"> {}
           {spots?.map((spot) => (
+
             <div className="spots-div">
               <NavLink key={spot.name} to={`/spots/${spot.id}`}>
                 <div className="spot-details">
                   <img
                     className="spot-img"
-                    src="https://cdn.mos.cms.futurecdn.net/XNRcoHujh5mZHmPQZzYbgH.jpg"
+                    src={spot.photos?.split(" ")[0]}
                   ></img>
                   <div className="desc1">{`${spot.name} - ${spot.planet}, ${spot.system}`}</div>
                   <div className="desc2">{`⭐️${spot.avg_Rating}`}</div>{" "}

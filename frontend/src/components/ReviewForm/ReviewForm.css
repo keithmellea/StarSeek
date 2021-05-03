@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
   width: 60%;
   border-bottom: 2px solid rgb(255, 255, 255);
   padding-bottom: 1em;
@@ -14,7 +15,7 @@
   font-size: 16px;
   width: 300px;
   padding-bottom: 3em;
-  margin-bottom: 2em;
+  margin-bottom: .5em;
 }
 
 .review-form textarea:focus,
@@ -31,7 +32,6 @@
   height: 3em;
   width: 20%;
   position: relative;
-  left: 119px;
   border-radius: 10px;
   margin-top: 10px;
   border: none;
@@ -43,4 +43,8 @@
 
 .review-form select {
   width: 30%;
+}
+
+.stars {
+  right: 30px;
 }

@@ -54,7 +54,7 @@ if (!spots) {
         <SpotList />
         <div className="map">
           {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Andromeda_Galaxy_560mm_FL.jpg/1280px-Andromeda_Galaxy_560mm_FL.jpg"></img> */}
-          <GoogleApiWrapper coordinates={coordinates}/>
+          <GoogleApiWrapper coordinates={coordinates} />
         </div>
       </div>
     );

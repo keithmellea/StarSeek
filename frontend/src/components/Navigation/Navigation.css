@@ -6,6 +6,10 @@
     font-style: normal;
 }
 
+.spot-list {
+    margin-top: 0px;
+}
+
 a, button {    
     font-family: 'good_timesregular';
     text-decoration: none !important;
@@ -40,6 +44,7 @@ ul.navbar {
     background-color: rgba(255, 255, 255, 0.935);
     padding: 12px;
     margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .navbar li {

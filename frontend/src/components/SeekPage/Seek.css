@@ -4,7 +4,6 @@
 }
 
 .map {
-    padding-top: 16px;
     overflow: scroll;
     height: 700px;
     width: 100%;

@@ -2,6 +2,7 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { check, validationResult } = require("express-validator");
 
+const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const db = require('../../db/models');
 const router = express.Router();
 
@@ -28,6 +29,33 @@ router.post("/:id/bookings", asyncHandler(async (req, res) => {
    return res.json( newBooking );
 }))
 
+//Update Spot
+router.patch(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const { id, photos, price, description, system, planet, region, arrangements } = req.body;
+    const spotId = await db.Spot.update(
+      { photos, price, description, system, planet, region, arrangements },
+      { where: { id } }
+    );
+    const spot = await db.Spot.findByPk(id);
 
+    return res.json({
+      spot,
+    });
+  })
+);
+
+router.delete(
+  "/:id",
+  asyncHandler(async function (req, res) {
+    const spot = await db.Spot.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.json(req.params.id);
+  })
+);
 
 module.exports = router;

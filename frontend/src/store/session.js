@@ -30,6 +30,18 @@ export const login = (user) => async (dispatch) => {
   return response;
 };
 
+export const updateUser = (user) => async (dispatch) => {
+  const res = await csrfFetch(`/api/users/${user.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(user),
+  });
+  if (!res.ok) throw res;
+
+  const data = await res.json();
+  dispatch(setUser(data.user));
+  return res;
+};
+
 const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {

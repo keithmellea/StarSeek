@@ -28,6 +28,16 @@ router.delete(
   })
 );
 
+router.post(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    let reviewId = parseInt(req.params.id, 10);
+    let review = await db.Book.findByPk(reviewId);
+   // const { cover, title, author, published, description } = req.body;
+    await review.update(req.body);
+  })
+);
+
 router.post("/", asyncHandler(async function (req, res) {
     const newReview = await db.Review.create(req.body);
     return res.json(newReview);

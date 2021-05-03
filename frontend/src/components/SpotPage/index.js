@@ -7,6 +7,10 @@ import { getReviews, deleteReview } from "../../store/reviews";
 import Calendar from 'react-calendar';
 import BookingForm from '../BookingForm'
 import ReviewForm from '../ReviewForm';
+import EditSpotModal from "../EditSpotModal";
+import { deleteSpot } from "../../store/spots";
+import { getHosts} from '../../store/hosts';
+
 
 import './SpotPage.css';
 
@@ -21,9 +25,17 @@ const SpotPage = () => {
     const reviews = useSelector(state => state.reviews.reviews);
     console.log(reviews);
 
+const hosts = useSelector((state) => {
+  return state.hosts.allHosts;
+});
+
+//const host = hosts[spot.hostId]?.name;
+
+
 useEffect(() => {
   dispatch(getOneSpot(id),
   dispatch(getReviews(id)));
+  dispatch(getHosts());
 }, [id]);
 
     const deleteReviewButton = (id) => {
@@ -35,6 +47,14 @@ useEffect(() => {
       }
     };
 
+    const deleteSpotButton = (id) => {
+      let result = window.confirm(
+        "Are you sure you want to delete this spot?"
+      );
+      if (result) {
+        dispatch(deleteSpot(id));
+      }
+    };
   if (!spot) return null;
 
     return (
@@ -49,31 +69,48 @@ useEffect(() => {
             <img className="thirdPhoto" src={nextPhotos[1]}></img>
             <img className="fourthPhoto" src={nextPhotos[2]}></img>
             <img className="fifthPhoto" src={nextPhotos[3]}></img>
+            <div className="edit-spot">
+              {" "}
+              <EditSpotModal />
+              <button
+                className="delete-spot"
+                id="deleteSpot"
+                onClick={() => deleteSpotButton(spot.id)}
+              >
+                Delete
+              </button>
+            </div>{" "}
             {photos.map((photo) => {
               console.log(photo);
               return <img className="otherPhotos" src={photo}></img>;
             })}
-            <div className="arrangements">{`${spot.arrangements} hosted by ${spot.hostId}`}</div>
+            <div className="arrangements">{`${spot.arrangements}
+            `}</div>
             <div className="description">{spot.description}</div>
             <div className="reviews">
               <ReviewForm user={user} spot={spot} />
-              <div className="reviews-list">{`${spot.avg_Rating} (${reviews.length} reviews)` }
-              {reviews.map((review) => {
-                const reviewVals = (
-                  <div className="review">
-                    <h3>{`${review.author} - ${review.createdAt}`}</h3>
-                    <div>{review.rating}</div>
-                    <div>{review.review}</div>
-                        <div className="delete">{
-                          <button id="deleteReview" onClick={() => deleteReviewButton(review.id)}>
+              <div className="reviews-list">
+                {`${spot.avg_Rating} (${reviews.length} reviews)`}
+                {reviews.map((review) => {
+                  const reviewVals = (
+                    <div className="review">
+                      <h3>{`${review.author} - ${review.createdAt}`}</h3>
+                      <div>{review.rating}</div>
+                      <div>{review.review}</div>
+                      <div className="delete">
+                        {
+                          <button
+                            id="deleteReview"
+                            onClick={() => deleteReviewButton(review.id)}
+                          >
                             Delete
-                          </button> 
-                        } 
-                        </div>
-                  </div>
-                );
-                return reviewVals;
-              })}
+                          </button>
+                        }
+                      </div>
+                    </div>
+                  );
+                  return reviewVals;
+                })}
               </div>
             </div>
             <div className="price">{`${spot.price} / night`}</div>

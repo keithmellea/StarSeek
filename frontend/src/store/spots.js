@@ -2,11 +2,32 @@
 import { csrfFetch } from "./csrf";
 
 const LOAD = 'spots/LOAD';
+const HOSTS = "hosts/LOAD";
 const ADD_ONE = 'spot/ADD_ONE';
 const ADD_BOOKING = "bookings/ADD_ONE";
+const SET_SPOT = "session/setUser";
+const DELETE_ONE = "reviews/DELETE_ONE";
+
+
+const deleteOneSpot = (spot) => ({
+  type: DELETE_ONE,
+  spot,
+});
+
+const setSpot = (spot) => {
+  return {
+    type: SET_SPOT,
+    payload: spot,
+  };
+};
 
 const load = list => ({
   type: LOAD,
+  list,
+});
+
+const hosts = (list) => ({
+  type: HOSTS,
   list,
 });
 
@@ -28,6 +49,15 @@ export const getSpots = () => async dispatch => {
         dispatch(load(spots));
     }
 }
+
+export const getHosts = () => async (dispatch) => {
+  const response = await fetch("/api/hosts");
+
+  if (response.ok) {
+    const hosts = await response.json();
+    dispatch(load(hosts));
+  }
+};
 
 export const getOneSpot = (id) => async (dispatch) => {
   const res = await fetch(`/api/spots/${id}`);
@@ -55,48 +85,81 @@ const initialState = {
   list: []
 };
 
+export const updateSpot = (spot) => async (dispatch) => {
+  const res = await csrfFetch(`/api/spots/${spot.id}`, {
+    method: "PATCH",
+    body: JSON.stringify(spot),
+  });
+  if (!res.ok) throw res;
+
+  const data = await res.json();
+  dispatch(setSpot(data.spot));
+  return res;
+};
+
+export const deleteSpot = (id) => async (dispatch) => {
+  const res = await csrfFetch(`/api/spots/${id}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw res;
+  const spot = await res.json();
+  dispatch(deleteOneSpot(spot));
+  return spot;
+};
+
 const spotsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD: {
-          const allSpots = [];  
-        action.list.forEach(spot => {
-            allSpots[spot.id] = spot;
+      case LOAD: {
+        const allSpots = [];
+        action.list.forEach((spot) => {
+          allSpots[spot.id] = spot;
         });
         return {
-            allSpots,
-            ...state,
-            list: action.list,
-        }
+          allSpots,
+          ...state,
+          list: action.list,
+        };
       }
       case ADD_ONE: {
         const newState = {
           ...state,
-          [action.spot.id]: action.spot
+          [action.spot.id]: action.spot,
         };
-        const spotList = newState.list.map(id => newState[id]);
+        const spotList = newState.list.map((id) => newState[id]);
         spotList.push(action.spot);
         return newState;
       }
       case ADD_BOOKING: {
         if (!state[action.booking.id]) {
-        const newState = {
+          const newState = {
+            ...state,
+            [action.booking.id]: action.booking,
+          };
+          const bookingList = newState.list?.map((id) => newState[id]);
+          bookingList?.push(action.booking);
+          return newState;
+        }
+        return {
           ...state,
-          [action.booking.id]: action.booking
+          [action.booking.id]: {
+            ...state[action.booking.id],
+            ...action.booking,
+          },
         };
-        const bookingList = newState.list?.map(id => newState[id]);
-        bookingList?.push(action.booking);
-        return newState;
       }
-      return {
-        ...state,
-        [action.booking.id]: {
-          ...state[action.booking.id],
-          ...action.booking,
-        }
-        }
-      };
-        default:
-            return state;
+      case HOSTS: {
+        const allHosts = [];
+        action.list.forEach((host) => {
+          allHosts[host.id] = host;
+        });
+        return {
+          allHosts,
+          ...state,
+          list: action.list,
+        };
+      }
+      default:
+        return state;
     }
 }
 

@@ -24,6 +24,24 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
+router.patch(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const { id, username, email, image_url, first_name, last_name } = req.body;
+    const userId = await User.update(
+      { username, email, image_url, first_name, last_name },
+      { where: { id } }
+    );
+    const user = await User.findByPk(id);
+
+    await setTokenCookie(res, user);
+
+    return res.json({
+      user,
+    });
+  })
+);
+
 router.post(
   "",
   validateSignup,
