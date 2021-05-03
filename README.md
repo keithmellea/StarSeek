@@ -27,7 +27,8 @@ https://starseekapp.herokuapp.com/
 
 - User authentication is completed by hashing passwords using bcrypt js library (csurf protected as well)
 - The user can search for spots around the galaxy by searching based on times available, locations(spot name, planet, system)
-- Once logged in, a user can book a listing for a specified amount of time. Once made, the user has the ability to cancel the booking on their profile page.
+- Logged in users can book a spot for a specific period of time. The user can cancel this booking on their profile page..
 - The user can leave a review on a spot they've been to.
 - Custom Galaxy Map based on Google Maps API to specify location.
 - Logged in user has a profile page
+- Logged in user can create, edit or delete their spots
