@@ -1,3 +1,21 @@
-.signup {
-    color: white;
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    width: 80%;
+    background-color: white;
+}
+
+.sign-div {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-form label {
+    padding-bottom: 10px;
 }
