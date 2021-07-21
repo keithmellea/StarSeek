@@ -3,18 +3,7 @@ import * as sessionActions from "../../store/spots";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-//  name: DataTypes.STRING(50),
-//       photos: DataTypes.STRING,
-//       price: DataTypes.DECIMAL,
-//       hostId: DataTypes.STRING,
-//       avg_Rating: DataTypes.DECIMAL,
-//       description: DataTypes.TEXT,
-//       system: DataTypes.STRING,
-//       planet: DataTypes.STRING,
-//       region: DataTypes.STRING,
-//       arrangements: DataTypes.TEXT,
-//       latitude: DataTypes.FLOAT,
-//       longitude: DataTypes.FLOAT
+import "../EditSpotModal/EditSpotModal.css";
 
 function LoginForm() {
     const { id } = useParams();
@@ -46,7 +35,6 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Spot</h2>
       <div className="line"></div>
       <h1>Update Spot Info</h1>
       <ul>
@@ -61,16 +49,6 @@ function LoginForm() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </label>
-      <label className="input3">
-        {/* Email */}
-        <input
-          placeholder="Price"
-          type="text"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
           required
         />
       </label>

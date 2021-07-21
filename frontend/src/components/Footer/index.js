@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
-function Footer(props) {
+function Footer() {
   return (
     <>
       <div className="footer-container">
@@ -26,10 +26,6 @@ function Footer(props) {
             />
           </a>
         </div>
-        {/* <div className="footer-description">
-          <p> This AirBnb clone was built as a week-long project </p>
-          <p> for a rigorous 1000+ hour software engineering bootcamp.</p>
-        </div> */}
       </div>
     </>
   );

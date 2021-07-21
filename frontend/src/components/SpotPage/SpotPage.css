@@ -167,3 +167,7 @@ body {
     margin-top: 10px;
     font-size: 14px;
 }
+
+.map {
+    height: 90%;
+}
