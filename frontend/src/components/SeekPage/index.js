@@ -39,11 +39,31 @@ spots.forEach((spot) => {
     "https://upload.wikimedia.org/wikipedia/commons/8/88/Map_marker.svg";
   marker.id = spot.name.split(" ")[0];
   marker.className = "spot-marker";
-  console.log(marker);
+  console.log(document.body);
+  if (!document.body.contains(marker)) {
   document.body.appendChild(marker);
+  }
+  let bubble = document.createElement("div");
+  bubble.className = "bubble";
+  bubble.id = `${spot.name.split(" ")[0]}-bubble`;
+  console.log(bubble);
+  marker.addEventListener('click', e => {
+    if (bubble.style.display === "none") {
+    bubble.style.position = "absolute";
+    bubble.style.top = `500px`;
+    bubble.style.right = `500px`;
+    bubble.style.display = "block";
+    bubble.innerHTML = spot.name;
+    console.log(e.clientX);
+    }
+    else {
+      bubble.style.display = "none";
+    }
+  })
+  document.body.appendChild(bubble);
 })
 
-console.log("markers", document.querySelectorAll("spot-marker"));
+// console.log("markers", document.querySelectorAll("bubble"));
 
     return (
       <div className="page-div">

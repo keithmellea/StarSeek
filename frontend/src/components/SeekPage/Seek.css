@@ -182,8 +182,40 @@
     right: 120px;
 }
 
-#Norr {
+#Wheeler {
     position: absolute;
     top: 131px;
+    right: 620px;
+}
+
+#Bekenstein {
+    position: absolute;
+    top: 331px;
     right: 120px;
+}
+
+#Saturn {
+    position: absolute;
+    top: 531px;
+    right: 320px;
+}
+
+#Beaches {
+    position: absolute;
+    top: 531px;
+    right: 320px;
+}
+
+#Element {
+    position: absolute;
+    top: 531px;
+    right: 120px;
+}
+
+.bubble {
+    background-color: white;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: none;
 }
