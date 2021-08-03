@@ -33,9 +33,9 @@ router.post("/:id/bookings", asyncHandler(async (req, res) => {
 router.patch(
   "/:id",
   asyncHandler(async (req, res) => {
-    const { id, photos, price, description, system, planet, region, arrangements } = req.body;
+    const { id, name, price, description,planet, system } = req.body;
     const spotId = await db.Spot.update(
-      { photos, price, description, system, planet, region, arrangements },
+      { name, price, description, planet, system },
       { where: { id } }
     );
     const spot = await db.Spot.findByPk(id);

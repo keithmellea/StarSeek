@@ -12,13 +12,17 @@ import Profile from '../../frontend/src/components/Profile'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
+      <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGltd6f1lIaVFe-Pf0Gs6v5eEGTxqDRFk&callback=initMap&libraries=&v=weekly"
+        async
+      ></script>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>

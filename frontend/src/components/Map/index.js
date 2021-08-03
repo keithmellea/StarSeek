@@ -1,49 +1,10 @@
-import React from 'react';
-import { Map, GoogleMap, GoogleApiWrapper, Marker, overlayView, ImageMapType } from 'google-maps-react';
-import { Redirect, useHistory } from 'react-router';
+import React from "react";
 
-const mapStyles = {
-  width: '58%',
-  height: '600px'
-};
+function MyComponent() {
+  return (
+   <img id="map" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Andromeda_Galaxy_560mm_FL.jpg/1280px-Andromeda_Galaxy_560mm_FL.jpg"></img> 
+  //  <img id="marker" src="https://upload.wikimedia.org/wikipedia/commons/8/88/Map_marker.svg"></img> 
+  )
+  }
 
-
-export function MapContainer (props) {
-    const { location , coordinates} = props
-
-    return (
-      <Map
-        google={props.google}
-        initialCenter={location}
-        style={mapStyles}
-        mapType={"moon"}
-        defaultExtraMapTypes={[
-          {
-            id: "moon",
-            mapType: {
-              getTileUrl: function (coord, zoom) {
-                return "https://mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw/1/1/0.jpg";
-              },
-              maxZoom: 9,
-              tileSize: new props.google.maps.Size(256, 256),
-              minZoom: 0,
-              radius: 1738000,
-              name: "Moon",
-            },
-          },
-        ]}
-        defaultOptions={{
-          maxZoom: 18,
-          mapTypeControlOptions: {
-            mapTypeIds: ["moon", "satellite"],
-          },
-        }}
-        // disableDefaultUI
-      ></Map>
-    );
-           
-}
-
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyCGltd6f1lIaVFe-Pf0Gs6v5eEGTxqDRFk",
-})(MapContainer);
+export default React.memo(MyComponent);

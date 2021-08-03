@@ -5,7 +5,7 @@ const LOAD = 'spots/LOAD';
 const HOSTS = "hosts/LOAD";
 const ADD_ONE = 'spot/ADD_ONE';
 const ADD_BOOKING = "bookings/ADD_ONE";
-const SET_SPOT = "session/setUser";
+const SET_SPOT = "spot/SET_SPOT";
 const DELETE_ONE = "reviews/DELETE_ONE";
 
 
@@ -17,7 +17,7 @@ const deleteOneSpot = (spot) => ({
 const setSpot = (spot) => {
   return {
     type: SET_SPOT,
-    payload: spot,
+    spot,
   };
 };
 
@@ -82,7 +82,9 @@ export const createBooking = (newBooking, id) => async (dispatch) => {
 };
 
 const initialState = {
-  list: []
+  list: [],
+  current: null,
+  spots: {}
 };
 
 export const updateSpot = (spot) => async (dispatch) => {
@@ -108,7 +110,8 @@ export const deleteSpot = (id) => async (dispatch) => {
 };
 
 const spotsReducer = (state = initialState, action) => {
-    switch (action.type) {
+  let newState = { ...state };
+  switch (action.type) {
       case LOAD: {
         const allSpots = [];
         action.list.forEach((spot) => {
@@ -118,6 +121,7 @@ const spotsReducer = (state = initialState, action) => {
           allSpots,
           ...state,
           list: action.list,
+          spots: action.spots,
         };
       }
       case ADD_ONE: {
@@ -128,6 +132,13 @@ const spotsReducer = (state = initialState, action) => {
         const spotList = newState.list.map((id) => newState[id]);
         spotList.push(action.spot);
         return newState;
+      }
+      case SET_SPOT: {
+        const newState = {
+        ...state,
+        [action.spot.id]: action.spot,
+      };
+        return { ...state, current: state.list[action.spot.id] };
       }
       case ADD_BOOKING: {
         if (!state[action.booking.id]) {

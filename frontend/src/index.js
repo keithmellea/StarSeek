@@ -12,6 +12,7 @@ import * as sessionActions from "./store/session";
 import SearchProvider from "./context/SearchContext";
 
 const store = configureStore();
+const cors = require("cors");
 
 if (process.env.NODE_ENV !== "production") {
   restoreCSRF();

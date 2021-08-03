@@ -19,17 +19,31 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    const nameDiv = document.querySelector(".name");
+    nameDiv.innerHTML = name;
+    const priceDiv = document.querySelector(".price");
+    priceDiv.innerHTML = price;
+    const descDiv = document.querySelector(".description");
+    descDiv.innerHTML = description;
+    const planetDiv = document.querySelector(".planet");
+    planetDiv.innerHTML = planet + ", " + system;
+    // const systemDiv = document.querySelector(".system");
+    // systemDiv.value = system;
+    console.log(descDiv.value);
     return dispatch(
       sessionActions.updateSpot({
         id: spot.id,
         name,
         price,
         description,
+        planet,
         system,
       })
-    ).catch(async (res) => {
+    )
+    .catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);
+    
     });
   };
 

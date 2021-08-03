@@ -1,4 +1,6 @@
 const express = require("express");
+const proxy = require("http-proxy-middleware");
+
 const morgan = require("morgan");
 const cors = require("cors");
 const csurf = require("csurf");
@@ -14,11 +16,12 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.json()); 
 
-// Security Middleware
-if (!isProduction) {
-  // enable cors only in development
+// // Security Middleware
+// if (!isProduction) {
+//   // enable cors only in development
+//   app.use(cors());
+// }
   app.use(cors());
-}
 // helmet helps set a variety of headers to better secure your app
 app.use(
   helmet({

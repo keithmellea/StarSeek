@@ -8,3 +8,182 @@
     height: 700px;
     width: 100%;
 }
+
+.spot-marker {
+    height: 20px;
+    width: 20px;
+}
+
+#Cliffs {
+    position: absolute;
+    top: 300px;
+    right: 700px;
+}
+
+#Mount {
+    position: absolute;
+    top: 300px;
+    right: 600px;
+}
+
+#Station {
+    position: absolute;
+    top: 266px;
+    right: 556px;
+}
+
+#City {
+    position: absolute;
+    top: 621px;
+    right: 284px;
+}
+
+#Xinjiang {
+    position: absolute;
+    top: 381px;
+    right: 884px;
+}
+
+#New {
+    position: absolute;
+    top: 681px;
+    right: 184px;
+}
+
+#Hope {
+    position: absolute;
+    top: 581px;
+    right: 384px;
+}
+
+#Station {
+    position: absolute;
+    top: 181px;
+    right: 784px;
+}
+
+#Zheng {
+    position: absolute;
+    top: 201px;
+    right: 584px;
+}
+
+#Omega {
+    position: absolute;
+    top: 401px;
+    right: 294px;
+}
+
+#Tanaan {
+    position: absolute;
+    top: 601px;
+    right: 604px;
+}
+
+#Erikkson {
+    position: absolute;
+    top: 801px;
+    right: 390px;
+}
+
+#Tecunis {
+    position: absolute;
+    top: 851px;
+    right: 310px;
+}
+
+#Forests {
+    position: absolute;
+    top: 651px;
+    right: 710px;
+}
+
+#Altaaya {
+    position: absolute;
+    top: 701px;
+    right: 410px;
+}
+
+#North {
+    position: absolute;
+    top: 751px;
+    right: 610px;
+}
+
+#Kaiser {
+    position: absolute;
+    top: 551px;
+    right: 810px;
+}
+
+#Armstrong {
+    position: absolute;
+    top: 451px;
+    right: 710px;
+}
+
+#Porolan {
+    position: absolute;
+    top: 881px;
+    right: 910px;
+}
+
+#Salamis {
+    position: absolute;
+    top: 781px;
+    right: 850px;
+}
+
+#Asteroid {
+    position: absolute;
+    top: 681px;
+    right: 820px;
+}
+
+#Patavig {
+    position: absolute;
+    top: 281px;
+    right: 220px;
+}
+
+#Edolus {
+    position: absolute;
+    top: 181px;
+    right: 320px;
+}
+
+#Utopia {
+    position: absolute;
+    top: 101px;
+    right: 520px;
+}
+
+#Loki {
+    position: absolute;
+    top: 101px;
+    right: 120px;
+}
+
+#Loki {
+    position: absolute;
+    top: 101px;
+    right: 920px;
+}
+
+#Terra {
+    position: absolute;
+    top: 81px;
+    right: 720px;
+}
+
+#Norr {
+    position: absolute;
+    top: 131px;
+    right: 120px;
+}
+
+#Norr {
+    position: absolute;
+    top: 131px;
+    right: 120px;
+}
